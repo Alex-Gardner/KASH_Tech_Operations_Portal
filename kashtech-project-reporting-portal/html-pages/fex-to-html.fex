@@ -1,0 +1,36 @@
+-* Get fex data info into HTML
+-* Note: Need to have table command in fex to start requests
+-* ampersand variables can be read from fex with the command !IBI.AMP.<FEX_VARIABLE_NAME>
+
+
+-* HTML loads fex & fex sends data to html
+-* within fex file, make html (HTMLFORM BEGIN) that gets values from fex
+-* send up data to parent html from script with: 
+-* parent.document.querySelector('#<element that needs the data>').value = '!IBI.AMP.CAR'
+
+TABLE FILE CAR
+PRINT CAR
+WHERE READLIMIT EQ 1
+ON TABLE HOLD AS CARHOLD FORMAT ALPHA
+END 
+-RUN
+
+-READFILE CARHOLD
+ -RUN
+ 
+-TYPE &CAR
+-*  TAKES LAST ROW OF TABLE FROM ^ REQUEST AND SAVES COLUMN VALUES IN VARIABLE
+
+-* *- HTMLFOM <URL>
+-HTMLFORM BEGIN
+!IBI.AMP.<VAR_NAME>;
+<script>
+parent.document.getElementById('').value = '!IBI.AMP.CAR'
+
+</script>
+
+-HTMLFORM END
+
+-* HTML LOADING FEX -- GETTING INFO FROM FEX TO PAGE (FROM WHICH IT WAS LOADED)
+
+-* https://developer.mozilla.org/en-US/docs/Web/API/Window/parent

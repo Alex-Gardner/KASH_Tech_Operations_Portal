@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timesheet Update</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">     
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- <script src="..." async></script> -->
+    <link rel="stylesheet" href="./styles.css" />
+    <!-- <link rel="stylesheet" href="./styles-2.css" />     -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">  
+    <meta name="description" content="Timesheet App" />
+    <meta name="author" content="KASHTech, LLC" />
+
+    <link rel="icon" href="**link-to-icon-file**" type="image/x-icon" /> 
+</head>
+<body>
+    <main class="timesheet-update__main-section max-width--main-container">
+        <h1 class="weeklytimesheet__page-title">
+            Update Weekly Timesheet
+        </h1>
+        <form action="" id="timesheet-staging-form" class="timesheet-staging-form">
+            <div class="staging-form__content-holder">
+
+                <div class="employee-input_holder">
+                    <label for="employee-dropdown-input" class="employee-dropdown-label">
+                        Employee:
+                    </label>
+                        <select class="employee-dropdown-input" id="employee-dropdown-input" name="employee-dropdown-input">
+                            <option value="">
+                                Has a Notoriously Long Name
+                            </option>
+                        </select>
+                </div>
+
+                <div class="timesheet__task-category-holder">
+
+                    <div class="reporting-date--holder">
+                        <label for="reporting-start-date__dropdown-input" class="reporting-start-date__label">
+                            Reporting Period Start Date (Mon)
+                        </label>
+                        <select name="reporting-start-date__dropdown-input" id="reporting-start-date__dropdown-input" class="reporting-start-date__dropdown-input">
+                            <option value="">
+                                
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="project-description--holder">
+                        <label for="project-description__dropdown-input" class="project-description__label">
+                            Project Description <br><span>(SOW I.D.)</span>
+                        </label>
+                        <select name="project-description__dropdown-input" id="project-description__dropdown-input" class="project-description__dropdown-input">
+                            <option value="">
+                                
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="time-billable--holder">
+                        <label for="time-billable__dropdown-input" class="time-billable__label">
+                            Time Billable?
+                        </label>
+                        <select name="time-billable__dropdown-input" id="time-billable__dropdown-input" class="time-billable__dropdown-input">
+                            <option value="">
+                                
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="non-billable-category--holder">
+                        <label for="non-billable-category__dropdown-input" class="non-billable-category__label">
+                            Non-Billable Category
+                        </label>
+                        <select name="non-billable-category__dropdown-input" id="non-billable-category__dropdown-input" class="non-billable-category__dropdown-input">
+                            <option value="">
+                                
+                            </option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="timesheet__daily-hours-holder">
+                    <h2 class="daily-hours--title">
+                        Daily Hours <br>(Round to nearest 0.25)
+                    </h2>
+
+                    <div class="weekly-hours--holder">
+
+                        <div class="monday_input-holder input-holder__day">
+                            <label for="monday_hours-input" class="monday_hours-label">
+                                Mon
+                            </label>
+                            <input type="number" max="50" step="0.25" name="monday_hours-input" class="monday_hours-input" id="monday_hours-input">
+                        </div>
+
+                        <div class="tuesday_input-holder input-holder__day">
+                            <label for="tuesday_hours-input" class="tuesday_hours-label">
+                                Tue
+                            </label>
+                            <input type="number" max="50" step="0.25" name="tuesday_hours-input" class="tuesday_hours-input" id="tuesday_hours-input">
+                        </div>
+
+                        <div class="wednesday_input-holder input-holder__day">
+                            <label for="wednesday_hours-input" class="wednesday_hours-label">
+                                Wed
+                            </label>
+                            <input type="number" max="50" step="0.25" name="wednesday_hours-input" class="wednesday_hours-input" id="wednesday_hours-input">
+                        </div>
+
+                        <div class="thursday_input-holder input-holder__day">
+                            <label for="thursday_hours-input" class="thursday_hours-label">
+                                Thu
+                            </label>
+                            <input type="number" max="50" step="0.25" name="thursday_hours-input" class="thursday_hours-input" id="thursday_hours-input">
+                        </div>
+
+                        <div class="friday_input-holder input-holder__day">
+                            <label for="friday_hours-input" class="friday_hours-label">
+                                Fri
+                            </label>
+                            <input type="number" max="50" step="0.25" name="friday_hours-input" class="friday_hours-input" id="friday_hours-input">
+                        </div>
+
+                        <div class="saturday_input-holder input-holder__day">
+                            <label for="saturday_hours-input" class="saturday_hours-label">
+                                Sat
+                            </label>
+                            <input type="number" max="50" step="0.25" name="saturday_hours-input" class="saturday_hours-input" id="saturday_hours-input">
+                        </div>
+
+                        <div class="sunday_input-holder input-holder__day">
+                            <label for="sunday_hours-input" class="sunday_hours-label">
+                                Sun
+                            </label>
+                            <input type="number" max="50" step="0.25" name="sunday_hours-input" class="sunday_hours-input" id="sunday_hours-input">
+                        </div>
+
+                    </div>
+                </div>
+
+                <button type="submit" class="timesheet__add-to-staging-button">
+                    Add To Staging Summary
+                </button>
+            </div>
+        </form>
+
+        <div class="timesheet__summary-divider">
+            <h2 class="projects-summary--title">
+                Project(s) Summary
+            </h2>
+        </div>
+
+        <iframe src="" id="timesheet-summary_iframe" class="timesheet-summary_iframe">
+
+        </iframe>
+
+        <button class="submit-timesheet--to-server_button">
+            Submit Timesheet <svg class="submit-to-server--embed-arrow" width="32" height="28" viewBox="0 0 32 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.99254e-07 14C3.99254e-07 14.5303 0.210689 15.039 0.58572 15.414C0.960751 15.789 1.4694 15.9996 1.99978 15.9996H25.1692L16.5821 24.5821C16.3962 24.768 16.2487 24.9887 16.1481 25.2316C16.0475 25.4746 15.9957 25.7349 15.9957 25.9978C15.9957 26.2608 16.0475 26.5211 16.1481 26.764C16.2487 27.0069 16.3962 27.2277 16.5821 27.4136C16.7681 27.5995 16.9888 27.747 17.2317 27.8476C17.4747 27.9482 17.735 28 17.998 28C18.2609 28 18.5213 27.9482 18.7642 27.8476C19.0072 27.747 19.2279 27.5995 19.4138 27.4136L31.4125 15.4157C31.5987 15.23 31.7465 15.0093 31.8473 14.7664C31.9481 14.5235 32 14.263 32 14C32 13.737 31.9481 13.4765 31.8473 13.2336C31.7465 12.9907 31.5987 12.77 31.4125 12.5843L19.4138 0.586421C19.0383 0.210942 18.529 0 17.998 0C17.4669 0 16.9577 0.210942 16.5821 0.586421C16.2066 0.9619 15.9957 1.47116 15.9957 2.00217C15.9957 2.53317 16.2066 3.04243 16.5821 3.41791L25.1692 12.0004H1.99978C1.4694 12.0004 0.960751 12.211 0.58572 12.586C0.210689 12.961 3.99254e-07 13.4697 3.99254e-07 14Z" fill="white"/>
+                </svg>
+                
+        </button>
+    </main>
+      <!-- <script src="**script-file.js**"></script> -->
+</body>
+</html>

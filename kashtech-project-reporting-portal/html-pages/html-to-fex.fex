@@ -1,0 +1,62 @@
+-* Get values from html to fex:
+-* Get the fex location and attach it in an iframe
+-* send out values from variables via url to fex iframe 
+
+-HTMLFORM BEGIN
+
+<!doctype html>
+<html>
+    <head>
+    </head>
+    <body>
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript">
+  $(function(){
+  });
+  function runReport(){
+      var path = window.location.href.substr(0, window.location.href.indexOf('ibi_apps')) ;
+      var url = path + 'ibi_apps/WFServlet?IBIC_server=EDASERVE&|IBIMR_drill=IBFS,RUNFEX,IBIF_ex,true&|IBIF_ex=IBFS:/WFC/Repository/Message_Reporting/Resources/Procedures/Formatted_Report/Print_Messages_Word.fex&|MESSAGE_IDS=' +  idArraymsgid[i] + '&|INBOX_ID=' + idArrayinboxid[i];
+      var textValue = document.getElementById('text1').value;
+      '&|PARM1=' + textValue;
+      document.getElementById('reportFrame').src = url;
+     // window.open(url, '_blank');
+  }
+  </script>
+  <button onclick="runReport()">Run report</button>
+  <iframe id="reportFrame"></iframe>
+    </body>
+</html>
+</html>
+
+
+-HTMLFORM END
+
+
+-*----------------------------------------
+Get HTML info into fex
+
+
+var path = window.location.href.substr(0, window.location.href.indexOf('ibi_apps')) ;
+console.log(path);
+var url = path + 'ibi_apps/WFServlet?IBIC_server=EDASERVE&|IBIMR_drill=IBFS,RUNFEX,IBIF_ex,true&|IBIF_ex=IBFS:/WFC/Repository/Message_Reporting/Resources/Procedures/Formatted_Report/Print_Messages_Word.fex&|MESSAGE_IDS=' +  idArraymsgid[i] + '&|INBOX_ID=' + idArrayinboxid[i];
+console.log(url);
+//window.open(url, '_blank');
+document.getElementById('iframeId').src = url;
+
+
+<body>
+<iframe id="sampleframe">
+    
+*- Fex procedure Stuff In Here    
+</iframe>
+<script>
+    var textVal = document.querySelector('#text1').value;
+    
+    '&|PARAM1' = textValue
+    
+    document.querySelector('#sampleframe').src = url;
+</script>
+</body>
