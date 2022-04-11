@@ -68,6 +68,10 @@ html {
   --kashtech_operations--blue-darken1: #1b4e5e;
   --kashtech_operations--main-green: #54c488;
   --kashtech_operations--green-darken1: #3e9f6b;
+  --kashtech_operations--characteristic-orange-1: #fa9b4b;
+  --kashtech_operations--characteristic-teal-1: #0e8973;
+  --kashtech_operations--characteristic-orange--darken-1: #e5771a;
+  --kashtech_operations--characteristic-purple-1: #a790b9;
 }
 
 /* -------------------------------------------------------------------- */
@@ -77,17 +81,23 @@ body {
   padding: 0 1rem;
   margin: 2rem 0;
 }
+input[type="text"] {
+  text-indent: 0.3rem;
+}
 /* -------------------------------------------------------------------- */
 .timesheet-update__main-section {
 }
 .max-width--main-container {
-  max-width: 1900px;
+  max-width: 1300px;
   margin: 0 auto;
 }
-.weeklytimesheet__page-title {
+.form-page-title--lg-1 {
   font-size: 3rem;
   font-weight: 900;
   text-transform: uppercase;
+  line-height: 1;
+}
+.weeklytimesheet__page-title {
   color: var(--kashtech_operations--green-darken1);
 }
 
@@ -141,14 +151,15 @@ body {
 .weekly-hours--holder {
   display: flex;
   gap: 1rem;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  flex-wrap: wrap;
 }
 .input-holder__day {
   display: flex;
   flex-direction: column;
 }
 .input-holder__day > input {
-  max-width: 4rem;
+  max-width: 3.5rem;
 }
 
 .timesheet__add-to-staging-button {
@@ -194,12 +205,13 @@ body {
   border: 3px solid #fff;
   display: flex;
   align-items: center;
+  margin-top: 2rem;
 }
 .submit-timesheet--to-server_button:hover {
   background-color: var(--kashtech_operations--green-darken1);
 }
 .submit-timesheet--to-server_button:hover .submit-to-server--embed-arrow {
-  transform: translate(0.5rem, 0) scale(1.05);
+  transform: translate(0.25rem, 0) scale(1.2);
 }
 .submit-to-server--embed-arrow {
   display: inline;
@@ -208,4 +220,448 @@ body {
   margin-left: 0.5rem;
   transition: transform 0.3s ease-in;
   transform-origin: center center;
+}
+
+/* ################################################################### */
+
+/* ################################################################### */
+
+/* ################################################################### */
+
+/* ################################################################### */
+
+/* ------------------------- Media Queries ---------------------- */
+@media (min-width: 650px) {
+  .form-page-title--lg-1 {
+    font-size: 4rem;
+  }
+}
+@media (min-width: 900px) {
+}
+
+/* ################################################################### */
+
+/* ################################################################### */
+
+/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+
+/* ^^^^^^^^^^^^^^ ********** Add Employee Form Page ********** ^^^^^^^^^^^^^^^^^^ */
+
+.max-width--main-container.add-employee-page__main-section {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.add-employee__page-title {
+  color: var(--kashtech_operations--characteristic-orange-1);
+}
+.add-employee-form {
+  margin: 2rem 0;
+}
+.add-employee-img-holder {
+  width: 100%;
+  aspect-ratio: 2.17;
+  background: #e5771a;
+  border-radius: 14px;
+}
+.add-employee-img-holder > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: bottom center;
+}
+.add-employee-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 200;
+}
+.add-employee-form label > input {
+  margin-top: 10px;
+  border: solid 2px var(--kashtech_operations--characteristic-orange-1);
+  border-radius: 4px;
+  width: 14rem;
+  background-color: #fefaf7;
+}
+.add-employee-form label > input:focus {
+  outline: 3px solid var(--kashtech_operations--characteristic-orange-1);
+}
+.add-employee-form--top-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem 0;
+}
+.add-employee-form--id-content {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 1rem 0;
+}
+.employee-form--personal-content-holder {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem 0;
+}
+.employee-form--location-content-holder {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem 0;
+}
+
+.employee-form--add-employee-button {
+  background-color: var(--kashtech_operations--characteristic-orange-1);
+  color: #fff;
+  font-weight: 900;
+  text-transform: uppercase;
+  padding: 1.5rem 1rem;
+  border-radius: 0.6rem;
+  border: 3px solid #fff;
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+}
+.employee-form--add-employee-button:hover {
+  background-color: var(--kashtech_operations--characteristic-orange--darken-1);
+}
+
+@media (min-width: 650px) {
+  /* .add-employee-form--top-section {
+    flex-direction: row;
+    gap: 1rem;
+    align-items: flex-start;
+  } */
+  .add-employee-form--id-content,
+  .employee-form--personal-content-holder,
+  .employee-form--location-content-holder {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .add-employee-form--top-section {
+    flex-direction: row;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+  .add-employee-form--id-content {
+    order: 1;
+    /* flex-basis: 40%; */
+  }
+  .add-employee-img-holder {
+    order: 2;
+    margin: 0;
+    /* flex-basis: 60%; */
+  }
+}
+
+/* ################################################################### */
+
+/* ################################################################### */
+
+/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+
+/* ^^^^^^^^^^^^^^ ********** Add Company Form Page ********** ^^^^^^^^^^^^^^^^^^ */
+.add-company-page__main-section.max-width--main-container {
+  max-width: 1100px;
+}
+.add-company-title {
+  color: var(--kashtech_operations--main-blue);
+}
+.add-company-page--content-holder {
+  display: flex;
+  flex-direction: column;
+  margin: 3rem 0 1rem;
+  gap: 2rem;
+}
+.add-company-img-holder {
+  flex-basis: 100%;
+  aspect-ratio: 1;
+  background-color: var(--kashtech_operations--main-blue);
+}
+.add-company-form {
+}
+.add-company-form--company-details,
+.add-company-form--company-location {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.add-company-form--company-location {
+  margin: 2rem 0;
+}
+.add-company-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 200;
+}
+.add-company-form label > input {
+  margin-top: 10px;
+  border: solid 2px var(--kashtech_operations--main-blue);
+  border-radius: 4px;
+  width: 14rem;
+  background-color: #f2fcff;
+}
+.add-company-form label > input:focus {
+  outline: 3px solid var(--kashtech_operations--main-blue);
+}
+
+.company-form--add-company-button {
+  background-color: var(--kashtech_operations--main-blue);
+  color: #fff;
+  font-weight: 900;
+  text-transform: uppercase;
+  padding: 1.5rem 1rem;
+  border-radius: 0.6rem;
+  border: 3px solid #fff;
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+}
+.company-form--add-company-button:hover {
+  background-color: var(--kashtech_operations--blue-darken1);
+}
+
+@media (min-width: 650px) {
+  .add-company-page--content-holder {
+    flex-direction: row;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .add-company-img-holder {
+    order: 2;
+  }
+}
+@media (min-width: 900px) {
+  .add-company-img-holder {
+    flex-basis: 50%;
+  }
+}
+
+/* ################################################################### */
+
+/* ################################################################### */
+
+/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+
+/* ^^^^^^^^^^^^^^ ********** Add Company Contact Form Page ********** ^^^^^^^^^^^^^^^^^^ */
+
+.add-comp-contact-page__main-section {
+}
+.add-comp-contact-page__main-section.max-width--main-container {
+}
+
+.add-comp-contact-title {
+  color: var(--kashtech_operations--characteristic-teal-1);
+}
+.add-comp-contact-page--content-holder {
+  display: flex;
+  flex-direction: column;
+  margin: 3rem 0 1rem;
+  gap: 2rem;
+  align-items: center;
+}
+.add-comp-contact-img-holder {
+  background-color: var(--kashtech_operations--characteristic-teal-1);
+  width: 50%;
+  aspect-ratio: 0.7868;
+}
+.add-comp-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+.add-comp-contact-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 200;
+}
+.add-comp-contact-form label > input {
+  margin-top: 10px;
+  border: solid 2px var(--kashtech_operations--characteristic-teal-1);
+  border-radius: 4px;
+  width: 14rem;
+  background-color: #f3fcfb;
+}
+.add-comp-contact-form label > input:focus {
+  outline: 3px solid var(--kashtech_operations--characteristic-teal-1);
+}
+.add-comp-contact-form .comp-contact-form--company-name-label {
+  font-size: 2rem;
+  font-weight: 400;
+}
+.add-comp-contact-form .comp-contact-form--company-name-label select {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  border: solid 2px var(--kashtech_operations--characteristic-teal-1);
+  border-radius: 4px;
+  width: 14rem;
+  background-color: #f3fcfb;
+}
+.comp-contact__contact-sub-title {
+  color: #57978c;
+  /* margin: 1rem 0; */
+}
+.add-comp-contact-form--contact-details-holder {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.contact-channel--holder,
+.comp_contact-location--holder {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.comp_contact-form--add-contact-button {
+  background-color: var(--kashtech_operations--characteristic-teal-1);
+  color: #fff;
+  font-weight: 900;
+  text-transform: uppercase;
+  padding: 1.5rem 1rem;
+  border-radius: 0.6rem;
+  border: 3px solid #fff;
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+}
+.comp_contact-form--add-contact-button:hover {
+  background-color: #1a3d37;
+}
+
+@media (min-width: 650px) {
+  .add-comp__contact-page--content-holder {
+    flex-direction: row;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .add-comp__contact-img-holder {
+    order: 2;
+  }
+}
+@media (min-width: 900px) {
+  .add-comp-contact-page--content-holder {
+    flex-direction: row;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+  .add-comp-contact-img-holder {
+    width: 40%;
+    aspect-ratio: 0.7868;
+    order: 2;
+  }
+}
+
+/* ################################################################### */
+
+/* ################################################################### */
+
+/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+
+/* ^^^^^^^^^^^^^^ ********** Add Project Form Page ********** ^^^^^^^^^^^^^^^^^^ */
+.add-project-page--body {
+  overflow-x: clip;
+}
+.add-project-page__main-section {
+}
+.add-project-page__main-section.max-width--main-container
+  .add-project-form--project-details {
+  position: relative;
+  padding: 1rem 0;
+}
+.add-project-title {
+  color: var(--kashtech_operations--characteristic-purple-1);
+  margin-bottom: 3rem;
+}
+.add-project-page--content-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.add-project-page--img-holder {
+  width: 50%;
+  aspect-ratio: 0.8761;
+  background-color: var(--kashtech_operations--characteristic-purple-1);
+}
+.add-project--form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.add-project--form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 200;
+}
+.add-project-form--project-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.add-project-form--project-details::after {
+  position: absolute;
+  content: "";
+  background-color: #f9f4fd;
+  height: 100%;
+  width: 130vw;
+  top: 0;
+  left: -20vw;
+  z-index: -1;
+}
+
+.add-project--form label > input,
+.add-project--form label > select {
+  margin-top: 10px;
+  border: solid 2px var(--kashtech_operations--characteristic-purple-1);
+  border-radius: 4px;
+  width: 14rem;
+  background-color: #f3fcfb;
+}
+.add-project--form label > input:focus,
+.add-project--form label > select:focus {
+  outline: 3px solid var(--kashtech_operations--characteristic-purple-1);
+}
+.project-estimates {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.date-estimates-holder {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.add-project-form--add-project-button {
+  background-color: #ac80ce;
+  color: #fff;
+  font-weight: 900;
+  text-transform: uppercase;
+  padding: 1.5rem 1rem;
+  border-radius: 0.6rem;
+  border: 3px solid #fff;
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  align-self: flex-start;
+}
+.add-project-form--add-project-button:hover {
+  background-color: #9335de;
+}
+
+@media (min-width: 900px) {
+  .add-project-page--content-holder {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .add-project-page--img-holder {
+    width: 45%;
+    order: 2;
+    margin-top: 1rem;
+  }
 }
