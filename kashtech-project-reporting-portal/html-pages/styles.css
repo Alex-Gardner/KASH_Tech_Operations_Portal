@@ -622,7 +622,9 @@ input[type="text"] {
   width: 14rem;
   background-color: #f3fcfb;
 }
-.add-project--form label > input:focus,
+.add-project--form label > .add-project--estimated-hours-input {
+  max-width: 4rem;
+}
 .add-project--form label > select:focus {
   outline: 3px solid var(--kashtech_operations--characteristic-purple-1);
 }
