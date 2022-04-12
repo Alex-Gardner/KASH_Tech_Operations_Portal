@@ -72,6 +72,7 @@ html {
   --kashtech_operations--characteristic-teal-1: #0e8973;
   --kashtech_operations--characteristic-orange--darken-1: #e5771a;
   --kashtech_operations--characteristic-purple-1: #a790b9;
+  --bounded-shadow: clamp(3px, 1.3vw, 15px);
 }
 
 /* -------------------------------------------------------------------- */
@@ -267,7 +268,11 @@ input[type="text"] {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  object-position: bottom center;
+  object-position: center center;
+  filter: drop-shadow(
+    var(--bounded-shadow) var(--bounded-shadow) 0px
+      var(--kashtech_operations--characteristic-orange-1)
+  );
 }
 .add-employee-form label {
   display: flex;
@@ -379,6 +384,15 @@ input[type="text"] {
   aspect-ratio: 1;
   background-color: var(--kashtech_operations--main-blue);
 }
+.add-company-img-holder > img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  filter: drop-shadow(
+    var(--bounded-shadow) var(--bounded-shadow) 0px
+      var(--kashtech_operations--main-blue)
+  );
+}
 .add-company-form {
 }
 .add-company-form--company-details,
@@ -463,9 +477,19 @@ input[type="text"] {
   align-items: center;
 }
 .add-comp-contact-img-holder {
-  background-color: var(--kashtech_operations--characteristic-teal-1);
+  /* background-color: var(--kashtech_operations--characteristic-teal-1); */
   width: 50%;
   aspect-ratio: 0.7868;
+}
+.add-comp-contact-img-holder > img {
+  --bounded-shadow: clamp(3px, 1vw, 7px);
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  filter: drop-shadow(
+    var(--bounded-shadow) var(--bounded-shadow) 0px
+      var(--kashtech_operations--characteristic-teal-1)
+  );
 }
 .add-comp-contact-form {
   display: flex;
@@ -586,7 +610,16 @@ input[type="text"] {
 .add-project-page--img-holder {
   width: 50%;
   aspect-ratio: 0.8761;
-  background-color: var(--kashtech_operations--characteristic-purple-1);
+  /* background-color: var(--kashtech_operations--characteristic-purple-1); */
+}
+.add-project-page--img-holder > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: drop-shadow(
+    var(--bounded-shadow) var(--bounded-shadow) 0px
+      var(--kashtech_operations--characteristic-purple-1)
+  );
 }
 .add-project--form {
   display: flex;
