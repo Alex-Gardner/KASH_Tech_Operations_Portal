@@ -327,6 +327,9 @@ input[type="text"] {
 .employee-form--add-employee-button:hover {
   background-color: var(--kashtech_operations--characteristic-orange--darken-1);
 }
+.employee-list-summary_iframe {
+  display: none;
+}
 
 @media (min-width: 650px) {
   /* .add-employee-form--top-section {
@@ -654,6 +657,10 @@ input[type="text"] {
   border-radius: 4px;
   width: 14rem;
   background-color: #f3fcfb;
+}
+.add-project--form label > input:focus,
+.add-project--form label > select:focus {
+  outline: 3px solid var(--kashtech_operations--characteristic-purple-1);
 }
 .add-project--form label > .add-project--estimated-hours-input {
   max-width: 4rem;
