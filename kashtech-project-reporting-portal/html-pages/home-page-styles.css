@@ -70,6 +70,7 @@ a {
   transform: translate(-50%, -50%);
   line-height: 1;
   z-index: 0;
+  transition: transform 0.2s cubic-bezier(0.53, -0.07, 0.86, 0.57);
 }
 .employees-card-watermark {
   --watermark-text-color: #f5c69f;
@@ -153,6 +154,11 @@ a {
 .kash_operations--hub-page--main a {
   text-decoration-line: none;
 }
+.employees-hub-page-main.max-width--main-container,
+.clients-hub-page-main.max-width--main-container,
+.timesheets-hub-page-main.max-width--main-container {
+  max-width: 1000px;
+}
 .kash_operations--hub-page--main {
   display: flex;
   flex-direction: column;
@@ -165,15 +171,16 @@ a {
 }
 .hub_page--main-actions-holder {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  /* justify-content: space-between; */
   gap: 4rem;
-  flex-wrap: wrap;
+  align-items: center;
 }
 .hub_page--main-actions-holder > * {
-  flex-basis: 50%;
+  /* flex-basis: 43%; */
   font-weight: 900;
-  font-size: 2.3rem;
-  padding: 0 1ch;
+  font-size: 1.8rem;
+  padding: 1ch;
   border: 7px solid var(--characteristic-color);
   border-radius: 0.5rem;
   height: clamp(350px, 40vw, 420px);
@@ -183,12 +190,36 @@ a {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
+  width: 85%;
+}
+.hub_page--main-action-link.employee_hub--main-action-link:hover {
+  background-color: #224550;
+}
+.hub_page--main-action-link.client_hub--main-action-link:hover {
+  background-color: #54475f;
+}
+.hub_page--main-action-link.timesheet_hub--main-action-link:hover {
+  background-color: #296c50;
+}
+.hub_page--main-action-link > p {
+  margin-top: auto;
 }
 .hub_page--main-action-link > svg {
   align-self: flex-end;
   width: clamp(50px, 25%, 100px);
   height: auto;
-  margin: auto 0 2rem;
+  margin-top: auto;
+}
+.hub_page--main-action-link > svg * {
+  fill: var(--characteristic-color);
+}
+.hub_page--main-action-link:nth-child(2n + 2) {
+  background-color: var(--characteristic-color);
+  color: #fff;
+}
+.hub_page--main-action-link:nth-child(2n + 2) > svg * {
+  fill: #fff;
 }
 .hub_page--secondary-actions-holder {
   display: flex;
@@ -198,10 +229,22 @@ a {
 .hub_page--secondary-action-link {
   color: #065886;
   font-weight: 700;
+  font-size: 1.5rem;
+}
+.hub_page--secondary-action-link:hover {
+  color: #638ea6;
 }
 
 .employees-hub-page-main {
   --characteristic-color: #fa9b4b;
+  color: var(--characteristic-color);
+}
+.clients-hub-page-main {
+  --characteristic-color: #439ebc;
+  color: var(--characteristic-color);
+}
+.timesheets-hub-page-main {
+  --characteristic-color: #54c488;
   color: var(--characteristic-color);
 }
 /* ################################################################### */
@@ -214,5 +257,28 @@ a {
 
 /* ################################################################### */
 
-@media (min-width: 900px) {
+@media (min-width: 650px) {
+  .hub_page--main-actions-holder {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 4rem;
+  }
+  .hub_page--main-actions-holder > * {
+    flex-basis: 43%;
+    font-weight: 900;
+    font-size: 2rem;
+    padding: 1ch;
+    border: 7px solid var(--characteristic-color);
+    border-radius: 0.5rem;
+    height: clamp(350px, 40vw, 420px);
+    width: unset;
+  }
+  .hub_page--main-action-link {
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
 }
