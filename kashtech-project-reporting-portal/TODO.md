@@ -308,10 +308,33 @@ Create detailed task reports
 
 ---
 
-in procedute
-table file car
-print car
-where readlimit eq 1
-on table hold as dummy
-end
--run
+---
+
+Timesheet form date input
+
+- Lookback to nearest Monday and have that be the default input
+
+Steps to getting desired timesheet UX behavior
+
+1. Gather from information when staging button is clicked
+2. Save a copy of information submitted in page memory (JS)
+3. Send information to FEX (normal means) to display report
+   \*Hidden variable for each staging submission?
+4. Way to delete in-memory information and re-submit to FEX?
+
+Current method for adding entries to staging timetable not working;
+Initial guess: The hidden variable '&TABLELOADED' gets initially set when running table with URL parameters (in this case it is an unset param)
+Sol'n ? State machine in JS that gets pulled in as a URL param?
+
+While we currently have choose employee dropdown info, make employee ID a parameter/field and have it breakup the entries
+
+Keep strict note of the temporary timesheet fields VS the permanent fields: someinformation used in the temporary field (e.g. Project Description) does not get sent to the permanent table (& instead gets populated and displayed by a join)
+-- combined-report-project-listings
+
+Input modifications? Trim leading/trailing spaces?
+
+04/19 TODO:
+JS state machine (if/else) to check if summary report has already run once
+HTML Pages for login, viewing reports, and choosing to edit files.
+
+Create a view to join company contacts with companies
