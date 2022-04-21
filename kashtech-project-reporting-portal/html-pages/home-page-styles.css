@@ -31,6 +31,7 @@ a {
   gap: 1.5rem;
 }
 .kash_operations_home--main-card {
+  position: relative;
   flex-basis: 33%;
   position: relative;
   z-index: 2;
@@ -56,6 +57,27 @@ a {
   color: var(--card-holder-color);
   box-shadow: 0 0 21px 8px var(--glow-shadow-lighter),
     0 0 7px var(--glow-shadow-darker);
+}
+.main-card--details_tag {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  transform: translate(0, -50%);
+  color: #fff;
+  background-color: var(--characteristic-color);
+}
+.employee-card--details_tag {
+  --characteristic-color: #ff9135;
+}
+.timesheet-card--details_tag {
+  --characteristic-color: #30bc70;
+}
+.employee-card--details_tag,
+.timesheet-card--details_tag {
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+.client-card--details_tag {
+  --characteristic-color: #2a748a;
 }
 
 .kash_operations_home--interactive-card-watermark {
