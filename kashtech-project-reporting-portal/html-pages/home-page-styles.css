@@ -31,10 +31,10 @@ a {
   gap: 1.5rem;
 }
 .kash_operations_home--main-card {
-  flex-basis: 42%;
+  flex-basis: 33%;
   position: relative;
   z-index: 2;
-  height: clamp(215px, 10vw + 25vh, 340px);
+  height: clamp(215px, 9vw + 15vh, 340px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -114,11 +114,11 @@ a {
 }
 .kash_operations_home--clients-card:hover ~ .clients-card-watermark {
   opacity: 1;
-  transform: translate(-110%, -50%);
+  transform: translate(-120%, -50%);
 }
 .kash_operations_home--timesheets-card:hover ~ .timesheets-card-watermark {
   opacity: 1;
-  transform: translate(10%, -50%);
+  transform: translate(20%, -50%);
 }
 
 /* ################################################################### */
@@ -170,7 +170,7 @@ a {
 .kash_operations--hub-page--main {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2rem;
 }
 .kash_operations--hub-title {
   text-transform: uppercase;
@@ -180,7 +180,7 @@ a {
 .kash_operations--upper-section-holder a.return-to-operations-hub {
   display: flex;
   /* background-color: #dbf0f6; */
-  background-color: #fff;
+  background-color: #f6f8f9;
   color: #255463;
   padding: 1rem;
   border-radius: 0.5rem;
@@ -252,7 +252,7 @@ a {
 .hub_page--secondary-actions-holder {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 .hub_page--secondary-action-link {
   color: #065886;
@@ -260,7 +260,7 @@ a {
   font-size: 1.5rem;
 }
 .hub_page--secondary-action-link:hover {
-  color: #638ea6;
+  color: #38b0f3;
 }
 
 .employees-hub-page-main {
@@ -287,22 +287,22 @@ a {
 
 @media (min-width: 650px) {
   .kash_operations--hub-title {
-    font-size: clamp(40px, 15px + 10vw, 120px);
+    font-size: clamp(40px, 15px + 10vw, 70px);
   }
   .hub_page--main-actions-holder {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     gap: 4rem;
   }
   .hub_page--main-actions-holder > * {
-    flex-basis: 43%;
+    flex-basis: 35%;
     font-weight: 900;
     font-size: 2rem;
     padding: 1ch;
     border: 7px solid var(--characteristic-color);
     border-radius: 0.5rem;
-    height: clamp(350px, 40vw, 420px);
+    height: clamp(300px, 40vw, 320px);
     width: unset;
   }
   .hub_page--main-action-link {
