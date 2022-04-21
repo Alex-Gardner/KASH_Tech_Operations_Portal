@@ -45,6 +45,7 @@ a {
   background-color: hsl(0 100% 100% / 20%);
   backdrop-filter: blur(2px);
   text-decoration-line: none;
+  transition: transform 0.2s cubic-bezier(0.53, -0.07, 0.86, 0.57);
 }
 .kash_operations_home--main-card > h2 {
   font-size: 1.4rem;
@@ -151,6 +152,12 @@ a {
 
 /* ################################################################### */
 
+.kash_operations--upper-section-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .kash_operations--hub-page--main a {
   text-decoration-line: none;
 }
@@ -158,6 +165,7 @@ a {
 .clients-hub-page-main.max-width--main-container,
 .timesheets-hub-page-main.max-width--main-container {
   max-width: 1000px;
+  padding-bottom: 2rem;
 }
 .kash_operations--hub-page--main {
   display: flex;
@@ -166,8 +174,28 @@ a {
 }
 .kash_operations--hub-title {
   text-transform: uppercase;
-  font-size: clamp(40px, 15px + 10vw, 120px);
+  font-size: clamp(35px, 10px + 10vw, 120px);
   font-weight: 900;
+}
+.kash_operations--upper-section-holder a.return-to-operations-hub {
+  display: flex;
+  /* background-color: #dbf0f6; */
+  background-color: #fff;
+  color: #255463;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  align-items: center;
+}
+.kash_operations--upper-section-holder a.return-to-operations-hub:hover {
+  text-decoration-line: underline;
+  background-color: #dbf0f6;
+  color: #0f9936;
+}
+.return-to-operations-hub svg {
+  padding: 0 0.2rem;
+  height: 1rem;
+  width: 0.9rem;
+  margin-right: 1rem;
 }
 .hub_page--main-actions-holder {
   display: flex;
@@ -258,6 +286,9 @@ a {
 /* ################################################################### */
 
 @media (min-width: 650px) {
+  .kash_operations--hub-title {
+    font-size: clamp(40px, 15px + 10vw, 120px);
+  }
   .hub_page--main-actions-holder {
     display: flex;
     flex-direction: row;

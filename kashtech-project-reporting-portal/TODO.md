@@ -322,9 +322,6 @@ Steps to getting desired timesheet UX behavior
    \*Hidden variable for each staging submission?
 4. Way to delete in-memory information and re-submit to FEX?
 
-While we currently have choose employee dropdown info, make employee ID a parameter/field and have it breakup the entries
-
-Keep strict note of the temporary timesheet fields VS the permanent fields: someinformation used in the temporary field (e.g. Project Description) does not get sent to the permanent table (& instead gets populated and displayed by a join)
 -- combined-report-project-listings
 
 Input modifications? Trim leading/trailing spaces?
@@ -336,3 +333,6 @@ JS state machine (if/else) to check if summary report has already run once
 HTML Pages for login, viewing reports, and choosing to edit files.
 
 Create a view to join company contacts with companies
+
+Success dialog when upload to database button is clicked
+"Sumitted timesheet for <Name>"

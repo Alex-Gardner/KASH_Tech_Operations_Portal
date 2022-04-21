@@ -53,3 +53,8 @@ HTML Form to upload information
 Separate fex
 
 Tasks & animations to send information
+
+04/20
+Dropped columns from Timesheet table in DB
+
+- PROJECT_CATEGORY, Company Name
