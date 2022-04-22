@@ -756,6 +756,20 @@ input[type="text"] {
   gap: 1rem;
 }
 
+.edit_page__return-link-holder {
+}
+.edit_page__return-link-holder a {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.edit_page__return-link-holder a svg {
+  text-decoration-line: none;
+}
+.edit_page__return-link-holder a p {
+  text-decoration-line: underline;
+}
+
 .add-project-form--add-project-button {
   background-color: #ac80ce;
   color: #fff;

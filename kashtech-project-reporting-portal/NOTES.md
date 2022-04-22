@@ -58,3 +58,10 @@ Tasks & animations to send information
 Dropped columns from Timesheet table in DB
 
 - PROJECT_CATEGORY, Company Name
+
+---
+
+Company Contact Operations:
+To change the affiliated company of a contact, we need to change the COMPANY_ID associated with the person on the contact table
+
+Textarea - Blob in SQL A250V in webfocus

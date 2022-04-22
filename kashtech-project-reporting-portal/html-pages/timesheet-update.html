@@ -83,6 +83,8 @@
 
                 </div>
 
+            <div class="hours_and_text-status">
+
                 <div class="timesheet__daily-hours-holder">
                     <h2 class="daily-hours--title">
                         Daily Hours <br>(Round to nearest 0.25)
@@ -142,11 +144,20 @@
                     </div>
                 </div>
 
-                <button type="submit" class="timesheet__add-to-staging-button">
-                    Add To Staging Summary
-                </button>
+                <label class="project-status_and_notes--label" for="project-status_and_notes--input">
+                    <p class="project-status_and_notes--label-title">
+                        Project Staus/Notes:
+                    </p>
+                    <textarea class="project-status_and_notes--input" id="project-status_and_notes--input" name="project-status_and_notes--input">
+                    </textarea>
+                </label>
             </div>
-        </form>
+
+            <button type="submit" class="timesheet__add-to-staging-button">
+                Add To Staging Summary
+            </button>
+        </div>
+    </form>
 
         <div class="timesheet__summary-divider">
             <h2 class="projects-summary--title">
