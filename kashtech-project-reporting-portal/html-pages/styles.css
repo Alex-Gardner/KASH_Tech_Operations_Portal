@@ -106,13 +106,20 @@ input[type="text"] {
 }
 
 .timesheet-staging-form {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 .staging-form__content-holder {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 2rem;
+}
+.timesheet-information-group-holder {
+  display: flex;
+  /* flex-direction: column; */
+  gap: 2rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 .employee-input_holder {
   max-width: 260px;
@@ -124,7 +131,7 @@ input[type="text"] {
 .employee-dropdown-label {
   color: #498092;
   font-size: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 .employee-dropdown-input {
   max-width: 100%;
@@ -136,21 +143,26 @@ input[type="text"] {
   flex-wrap: wrap;
 }
 .timesheet__task-category-holder > div {
-  max-width: 260px;
+  max-width: 230px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
 .timesheet__task-category-holder > div > label {
-  margin-bottom: 25px;
+  margin-bottom: 0.5rem;
   text-align: end;
 }
 
 /* ---------------------------------------- */
-
+.hours_and_text-status {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
 .daily-hours--title {
   font-weight: 300;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
 }
 
 .weekly-hours--holder {
@@ -165,6 +177,14 @@ input[type="text"] {
 }
 .input-holder__day > input {
   max-width: 3rem;
+}
+.project-status_and_notes--label-title {
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+}
+.project-status_and_notes--input {
+  max-width: 90vw;
 }
 
 .timesheet__add-to-staging-button {
@@ -301,6 +321,9 @@ input[type="text"] {
   }
 }
 @media (min-width: 900px) {
+  .timesheet-information-group-holder {
+    flex-wrap: nowrap;
+  }
 }
 
 /* ################################################################### */
@@ -550,6 +573,35 @@ input[type="text"] {
 .add-comp-contact-title {
   color: var(--kashtech_operations--characteristic-teal-1);
 }
+.edit_page__return-link-holder {
+  --link-color: #255463;
+  margin-top: 0.5rem;
+  color: var(--link-color);
+  display: flex;
+}
+.edit_page__return-link-holder:hover {
+  --link-color: #ffa05b;
+}
+.edit_page__return-link-holder a {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  color: inherit;
+  text-decoration-line: none;
+  justify-content: flex-start;
+}
+.edit_page__return-link-holder a svg {
+  width: 0.6rem;
+  height: 1rem;
+}
+.edit_page__return-link-holder a svg > * {
+  fill: var(--link-color);
+}
+.edit_page__return-link-holder a p {
+  text-decoration-line: underline;
+  text-underline-offset: 0.05rem;
+  font-weight: 300;
+}
 .add-comp-contact-page--content-holder {
   display: flex;
   flex-direction: column;
@@ -679,13 +731,14 @@ input[type="text"] {
 }
 .add-project-title {
   color: var(--kashtech_operations--characteristic-purple-1);
-  margin-bottom: 1rem;
+  /*margin-bottom: 1rem;*/
 }
 .add-project-page--content-holder {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  margin-top: 1rem;
 }
 .add-project-page--img-holder {
   width: 50%;
@@ -754,20 +807,6 @@ input[type="text"] {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-}
-
-.edit_page__return-link-holder {
-}
-.edit_page__return-link-holder a {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-}
-.edit_page__return-link-holder a svg {
-  text-decoration-line: none;
-}
-.edit_page__return-link-holder a p {
-  text-decoration-line: underline;
 }
 
 .add-project-form--add-project-button {

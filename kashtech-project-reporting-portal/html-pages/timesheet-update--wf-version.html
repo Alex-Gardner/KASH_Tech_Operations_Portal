@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timesheet Update</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">     
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- <script src="..." async></script> -->
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="http://52.167.226.44:8080/ibi_apps/WFServlet.ibfs?IBFS1_action=RUNFEX&IBFS_path=/WFC/Repository/KashDemo_Files/KASH_Operations/html-pages/external_html_and_assets/html/styles.css" />
+    <!-- <link rel="stylesheet" href="./styles-2.css" />     -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">  
+    <meta name="description" content="Timesheet App" />
+    <meta name="author" content="KASHTech, LLC" />
+
+    <!--<link rel="icon" href="**link-to-icon-file**" type="image/x-icon" /> -->
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous">
+    
+    </script>
+</head>
+<body>
+    
+    <dialog class="database-submit-dialog" id="database-submit-dialog">
+        <form method="dialog">
+            <p>
+                Timesheet Submitted for <br>
+                <span id="employee-name-span">
+                
+                </span>
+            </p>
+            <div>
+              <button class="dialog-modal-confirm-button" id="dialog-modal-confirm-button" value="confirm">OK</button>
+            </div>
+        </form>
+    </dialog>
+    
+    <main class="timesheet-update__main-section max-width--main-container">
+        <h1 class="weeklytimesheet__page-title form-page-title--lg-1">
+            Update Weekly Timesheet
+        </h1>
+        <div class="edit_page__return-link-holder">
+            <a href="http://52.167.226.44:8080/ibi_apps/WFServlet.ibfs?IBFS1_action=RUNFEX&IBFS_path=/WFC/Repository/KashDemo_Files/KASH_Operations/html-pages/external_html_and_assets/html/timesheet-hub.html" class="return-link">
+                <svg width="80" height="134" viewBox="0 0 80 134" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M76.7864 3.36106C72.8812 -0.544183 66.5495 -0.544181 62.6443 3.36106L1.12622 64.8787C-0.0453612 66.0503 -0.0453675 67.9497 1.12621 69.1213L62.6445 130.64C66.5497 134.545 72.8814 134.545 76.7866 130.64C80.6919 126.734 80.6919 120.403 76.7866 116.497L29.4107 69.1216C28.2391 67.95 28.2391 66.0505 29.4107 64.8789L76.7864 17.5032C80.6917 13.598 80.6917 7.2663 76.7864 3.36106Z" fill="#255463"/>
+                </svg>  
+                <p class="return-link-text">
+                    Return to Timesheet Hub
+                </p>
+            </a>
+        </div>
+        <form action="" id="timesheet-staging-form" class="timesheet-staging-form">
+            <div class="staging-form__content-holder">
+
+            <div class="timesheet-information-group-holder">
+
+            
+                <div class="employee-input_holder">
+                    <label for="employee-dropdown-input" class="employee-dropdown-label">
+                        Employee:
+                    </label>
+                    <select class="employee-dropdown-input" id="employee-dropdown-input" name="employee-dropdown-input">
+                        <option value="">
+                            - Choose an Employee -
+                        </option>
+                    </select>
+                </div>
+
+                <div class="timesheet__task-category-holder">
+
+                    <div class="reporting-date--holder">
+                        <label for="timesheet-update--timesheet-start-date-input" class="reporting-start-date__label">
+                            Reporting Period Start Date (Mon)
+                        </label>
+                        <input value="2022-04-18" step="7" type="date" class="add-timesheet-entry--form-input timesheet-update--timesheet-start-date-input" id="timesheet-update--timesheet-start-date-input" name="timesheet-update--timesheet-start-date-input">
+                        
+                        <!--<select name="reporting-start-date__dropdown-input" id="reporting-start-date__dropdown-input" class="reporting-start-date__dropdown-input">-->
+                        <!--    <option value="">-->
+                                
+                        <!--    </option>-->
+                        <!--</select>-->
+                    </div>
+
+                    <div class="project-description--holder">
+                        <label for="project-description__dropdown-input" class="project-description__label">
+                            Project Description <br><span>(SOW I.D.)</span>
+                        </label>
+                        <select name="project-description__dropdown-input" id="project-description__dropdown-input" class="add-timesheet-entry--form-input project-description__dropdown-input">
+                            <option value="N/A" data-statement-of-work-id="111">
+                                N/A
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="time-billable--holder">
+                        <label for="time-billable__dropdown-input" class="time-billable__label">
+                            Time Billable?
+                        </label>
+                        <select name="time-billable__dropdown-input" id="time-billable__dropdown-input" class="add-timesheet-entry--form-input time-billable__dropdown-input">
+                            <option value="Yes">
+                                Yes
+                            </option>
+                            <option value="No">
+                                No
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="non-billable-category--holder">
+                        <label for="non-billable-category__dropdown-input" class="non-billable-category__label">
+                            Non-Billable Category
+                        </label>
+                        <select name="non-billable-category__dropdown-input" id="non-billable-category__dropdown-input" class="add-timesheet-entry--form-input non-billable-category__dropdown-input">
+                            <option value="N/A">
+                                N/A
+                            </option>
+                            <option value="Holiday">
+                                Holiday
+                            </option>
+                            <option value="Vacation">
+                            Vacation
+                            </option>
+                            <option value="Sick or Other PTO">
+                                Sick or Other PTO
+                            </option>
+                            <option value="Travel (Non-billable)">
+                                Travel (Non-billable)
+                            </option>
+                            <option value="Sales">
+                                Sales
+                            </option>
+                            <option value="Client Time (Non-Billable)">
+                                Client Time (Non-Billable)
+                            </option>
+                            <option value="Assigned Admin Project">
+                                Assigned Admin Project
+                            </option>
+                            <option value="General Admin">
+                                General Admin
+                            </option>
+                            <option value="Other">
+                                Other
+                            </option>
+                        </select>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+            <div class="hours_and_text-status">
+                <div class="timesheet__daily-hours-holder">
+                    <h2 class="daily-hours--title">
+                        Daily Hours (Round to nearest 0.25)
+                    </h2>
+
+                    <div class="weekly-hours--holder">
+
+                        <div class="monday_input-holder input-holder__day">
+                            <label for="monday_hours-input" class="monday_hours-label">
+                                Mon
+                            </label>
+                            <input type="number" max="50" step="0.25" name="monday_hours-input" class="weekly-hours-input add-timesheet-entry--form-input monday_hours-input" id="monday_hours-input">
+                        </div>
+
+                        <div class="tuesday_input-holder input-holder__day">
+                            <label for="tuesday_hours-input" class="tuesday_hours-label">
+                                Tue
+                            </label>
+                            <input type="number" max="50" step="0.25" name="tuesday_hours-input" class="weekly-hours-input add-timesheet-entry--form-input tuesday_hours-input" id="tuesday_hours-input">
+                        </div>
+
+                        <div class="wednesday_input-holder input-holder__day">
+                            <label for="wednesday_hours-input" class="wednesday_hours-label">
+                                Wed
+                            </label>
+                            <input type="number" max="50" step="0.25" name="wednesday_hours-input" class="weekly-hours-input add-timesheet-entry--form-input wednesday_hours-input" id="wednesday_hours-input">
+                        </div>
+
+                        <div class="thursday_input-holder input-holder__day">
+                            <label for="thursday_hours-input" class="thursday_hours-label">
+                                Thu
+                            </label>
+                            <input type="number" max="50" step="0.25" name="thursday_hours-input" class="weekly-hours-input add-timesheet-entry--form-input thursday_hours-input" id="thursday_hours-input">
+                        </div>
+
+                        <div class="friday_input-holder input-holder__day">
+                            <label for="friday_hours-input" class="friday_hours-label">
+                                Fri
+                            </label>
+                            <input type="number" max="50" step="0.25" name="friday_hours-input" class="weekly-hours-input add-timesheet-entry--form-input friday_hours-input" id="friday_hours-input">
+                        </div>
+
+                        <div class="saturday_input-holder input-holder__day">
+                            <label for="saturday_hours-input" class="saturday_hours-label">
+                                Sat
+                            </label>
+                            <input type="number" max="50" step="0.25" name="saturday_hours-input" class="weekly-hours-input add-timesheet-entry--form-input saturday_hours-input" id="saturday_hours-input">
+                        </div>
+
+                        <div class="sunday_input-holder input-holder__day">
+                            <label for="sunday_hours-input" class="sunday_hours-label">
+                                Sun
+                            </label>
+                            <input type="number" max="50" step="0.25" name="sunday_hours-input" class="weekly-hours-input add-timesheet-entry--form-input sunday_hours-input" id="sunday_hours-input">
+                        </div>
+
+                    </div>
+                </div>
+                <label class="project-status_and_notes--label" for="project-status_and_notes--input">
+                    <p class="project-status_and_notes--label-title">
+                        Project Status/Notes:
+                    </p>
+                    <textarea cols="60" rows="8" class="add-timesheet-entry--form-input project-status_and_notes--input" id="project-status_and_notes--input" name="project-status_and_notes--input"></textarea>
+                </label>
+            </div>
+
+                <button onclick="sendTimesheetEntryToStaging()" type="button" class="timesheet__add-to-staging-button">
+                    Add To Staging Summary
+                </button>
+            </div>
+        </form>
+
+        <div class="timesheet__summary-divider">
+            <h2 class="projects-summary--title">
+                Project(s) Summary
+            </h2>
+        </div>
+
+        <iframe src="" title="Weekly Hours Staging Report" id="timesheet-summary_iframe" class="timesheet-summary_iframe">
+
+        </iframe>
+
+        <button id="submit-to-database-button" type="button" onclick="sendUploadTimesheetToDatabase()" class="submit-timesheet--to-server_button">
+            Submit Timesheet <svg class="submit-to-server--embed-arrow" width="32" height="28" viewBox="0 0 32 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.99254e-07 14C3.99254e-07 14.5303 0.210689 15.039 0.58572 15.414C0.960751 15.789 1.4694 15.9996 1.99978 15.9996H25.1692L16.5821 24.5821C16.3962 24.768 16.2487 24.9887 16.1481 25.2316C16.0475 25.4746 15.9957 25.7349 15.9957 25.9978C15.9957 26.2608 16.0475 26.5211 16.1481 26.764C16.2487 27.0069 16.3962 27.2277 16.5821 27.4136C16.7681 27.5995 16.9888 27.747 17.2317 27.8476C17.4747 27.9482 17.735 28 17.998 28C18.2609 28 18.5213 27.9482 18.7642 27.8476C19.0072 27.747 19.2279 27.5995 19.4138 27.4136L31.4125 15.4157C31.5987 15.23 31.7465 15.0093 31.8473 14.7664C31.9481 14.5235 32 14.263 32 14C32 13.737 31.9481 13.4765 31.8473 13.2336C31.7465 12.9907 31.5987 12.77 31.4125 12.5843L19.4138 0.586421C19.0383 0.210942 18.529 0 17.998 0C17.4669 0 16.9577 0.210942 16.5821 0.586421C16.2066 0.9619 15.9957 1.47116 15.9957 2.00217C15.9957 2.53317 16.2066 3.04243 16.5821 3.41791L25.1692 12.0004H1.99978C1.4694 12.0004 0.960751 12.211 0.58572 12.586C0.210689 12.961 3.99254e-07 13.4697 3.99254e-07 14Z" fill="white"/>
+                </svg>
+                
+        </button>
+        
+        <iframe src="" aria-hidden="true" title="Submitted Timesheet to Database" id="timesheet-to-database-fex--iframe" class="timesheet-to-database-fex--iframe">
+
+        </iframe>
+    </main>
+<script>
+    (function() {
+        var path = window.location.href.substr(0, window.location.href.indexOf('ibi_apps')) ;
+        var employeeFexUrl = path + 'ibi_apps/WFServlet?IBIC_server=EDASERVE&IBIMR_drill=IBFS,RUNFEX,IBIF_ex,true&IBIF_ex=IBFS:/WFC/Repository/KashDemo_Files/KASH_Operations/html-pages/external_html_and_assets/html/dropdown-fex-files/employee-dropdown.fex';
+        var projectDescriptionFexUrl = path + 'ibi_apps/WFServlet?IBIC_server=EDASERVE&IBIMR_drill=IBFS,RUNFEX,IBIF_ex,true&IBIF_ex=IBFS:/WFC/Repository/KashDemo_Files/KASH_Operations/html-pages/external_html_and_assets/html/dropdown-fex-files/project_description-dropdown.fex';
+        // var myUrl = path + 'ibi_apps/WFServlet?IBIC_server=EDASERVE&IBIMR_drill=IBFS,RUNFEX,IBIF_ex,true&IBIF_ex=IBFS:/WFC/Repository/KashDemo_Files/Ben/Dropdown_handcoded_html/get_cars.fex';
+        
+        fetch(employeeFexUrl).then(res => res.text()).then(
+            function(data) {
+                const parser = new DOMParser();
+                const xml = parser.parseFromString(data, "application/xml");
+                
+                var employeeNames = xml.querySelectorAll('tr[linetype="data"]')
+                
+                for (value of employeeNames) {
+                    var optionElement = document.createElement('option')
+                    optionElement.innerHTML = value.children[1].innerHTML;
+                    optionElement.value = value.children[1].innerHTML;
+                    optionElement.dataset.employeeId = value.children[3].innerHTML;
+                    document.querySelector('#employee-dropdown-input').appendChild(optionElement)
+                }
+            }
+        )
+        fetch(projectDescriptionFexUrl).then(res => res.text()).then(
+            function(data) {
+                const parser = new DOMParser();
+                const xml = parser.parseFromString(data, "application/xml");
+                
+                var projectDescriptions = xml.querySelectorAll('tr[linetype="data"]')
+                
+                for (value of projectDescriptions) {
+                    var optionElement = document.createElement('option')
+                    optionElement.innerHTML = value.children[0].innerHTML;
+                    optionElement.value = value.children[0].innerHTML;
+                    optionElement.dataset.statementOfWorkId = value.children[1].innerHTML;
+                    document.querySelector('#project-description__dropdown-input').appendChild(optionElement)
+                }
+            }
+        )
+        
+    })();
+    
+    let tableLoadedIndicator = 'F';
+    
+    let submitToDatabaseNotice = document.querySelector('#database-submit-dialog')
+    let submitToDatabaseBtn = document.querySelector('#submit-to-database-button')
+    
+    submitToDatabaseBtn.addEventListener('click', function onOpen() {
+                
+//                 let dialogConfirmButton = document.querySelector('#dialog-modal-confirm-button')
+        let employeeName = document.querySelector('#employee-dropdown-input').value;
+        
+        let dynamicNameHolder = document.querySelector('#employee-name-span');
+        dynamicNameHolder.innerHTML = employeeName
+          if (typeof submitToDatabaseNotice.showModal === "function") {
+            submitToDatabaseNotice.showModal();
+          } else {
+            outputBox.value = "Sorry, the <dialog> API is not supported by this browser.";
+            }
+    });
+
+    function sendTimesheetEntryToStaging() {
+              event.preventDefault();
+              var path = window.location.href.substr(0, window.location.href.indexOf('ibi_apps')) ;
+                var myUrl = path + "ibi_apps/WFServlet?IBIC_server=EDASERVE&IBIMR_drill=IBFS,RUNFEX,IBIF_ex,true&IBIF_ex=IBFS:/WFC/Repository/KashDemo_Files/KASH_Operations/html-pages/external_html_and_assets/html/dropdown-fex-files/add_timesheet-entry_to_staging.fex";
+                
+                const formInputs = document.querySelectorAll('.add-timesheet-entry--form-input');
+                
+                const employeeSelector = document.querySelector('#employee-dropdown-input')
+                const projectDescriptionSelector = document.querySelector('#project-description__dropdown-input')
+                
+                const employeeIdValue = employeeSelector.options[employeeSelector.selectedIndex].dataset.employeeId
+                const statementOfWorkIdValue = projectDescriptionSelector.options[projectDescriptionSelector.selectedIndex].dataset.statementOfWorkId
+                
+            
+            
+//                 companySelector.addEventListener('change', function logchange(event) {
+//                     console.log(companyIdValue)
+//                 })
+            
+            
+                // add a dataParam attribute that links FEX parameter to form value?
+                
+
+                let fexParameters = [
+                    '&PERIOD_START_DATE',
+                    '&PROJECT_INFORMATION',
+                    '&BILLABLE',
+                    '&NON_BILLABLE_REASON',
+                    
+                    '&MONDAY_HOURS',
+                    '&TUESDAY_HOURS',
+                    '&WEDNESDAY_HOURS',
+                    '&THURSDAY_HOURS',
+                    '&FRIDAY_HOURS',
+                    '&SATURDAY_HOURS',
+                    '&SUNDAY_HOURS',
+                    '&TIMESHEET_STATUS_ENTRY'
+                ]
+                
+                let hiddenParameters = [
+                    '&EMP_ID', 
+                    '&SOW_ID'
+                ]
+                
+                let hiddenVariables = [
+                    employeeIdValue,
+                    statementOfWorkIdValue
+                ]
+                let fexInternalParameters = [
+                    '&TABLELOADED'
+                ]
+                let fexInternalVariables = [
+                    tableLoadedIndicator
+                ]
+            
+                
+                
+                let inputArray = Array.from(formInputs);
+            
+                const parametizedVariables = inputArray.map((item,arrIndex) => {
+                    return (`${fexParameters[arrIndex]}=${item.value}`)
+                })
+                
+                const synchronizedVariables = hiddenVariables.map((item,arrIndex) => {
+                    return (`${hiddenParameters[arrIndex]}=${item}`)
+                })
+                
+                const fexCombinedVariables = fexInternalVariables.map((item,arrIndex) => {
+                    return (`${fexInternalParameters[arrIndex]}=${item}`)
+                })
+                
+                let combinedVariableList = [...parametizedVariables, ...synchronizedVariables,...fexCombinedVariables]
+            
+                
+                let concatUrl = "";
+                
+                combinedVariableList.forEach(
+                    function(item) {
+                        return(
+                            concatUrl = concatUrl + item
+                            )
+                    }
+                ) 
+//                 console.log(concatUrl);
+                    
+                myUrl = myUrl + concatUrl;
+//                 console.log(myUrl);
+//                 console.log(statementOfWorkIdValue);
+                document.getElementById('timesheet-summary_iframe').src = myUrl;
+                
+                tableLoadedIndicator = 'T';
+                
+                let resetInputElements = document.querySelectorAll('.weekly-hours-input, #project-status_and_notes--input')
+                for (inputItem of resetInputElements) {
+                    inputItem.value = ''
+                }
+        
+            } 
+            
+            
+            
+            
+            function sendUploadTimesheetToDatabase() {
+                event.preventDefault();
+                var path = window.location.href.substr(0, window.location.href.indexOf('ibi_apps')) ;
+                var myUrl = path + "ibi_apps/WFServlet?IBIC_server=EDASERVE&IBIMR_drill=IBFS,RUNFEX,IBIF_ex,true&IBIF_ex=IBFS:/WFC/Repository/KashDemo_Files/KASH_Operations/html-pages/external_html_and_assets/html/dropdown-fex-files/write_timesheet_to_data.fex";
+                
+                
+                const databaseFexIframe = document.querySelector('#timesheet-to-database-fex--iframe');
+                databaseFexIframe.src= myUrl;
+                
+            }
+
+</script>
+</body>
+</html>

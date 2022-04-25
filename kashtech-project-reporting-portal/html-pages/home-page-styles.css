@@ -30,10 +30,14 @@ a {
   justify-content: center;
   gap: 1.5rem;
 }
-.kash_operations_home--main-card {
+.kash_operations_home--main-card--wrapper {
   flex-basis: 33%;
   position: relative;
   z-index: 2;
+}
+.kash_operations_home--main-card {
+  flex-basis: 33%;
+  /* position: relative; */
   height: clamp(215px, 9vw + 15vh, 340px);
   display: flex;
   justify-content: center;
@@ -41,12 +45,12 @@ a {
   border-top: 0.5rem var(--card-holder-color) solid;
   border-radius: 0.5rem;
   box-shadow: 2px 8px 13px hsla(0 0% 0% / 25%);
-  transform-origin: center center;
   background-color: hsl(0 100% 100% / 20%);
   backdrop-filter: blur(2px);
   text-decoration-line: none;
   transition: transform 0.2s cubic-bezier(0.53, -0.07, 0.86, 0.57);
-  transform-style: preserve-3d;
+  transform-origin: center center;
+  /* transform-style: preserve-3d; */
 }
 .kash_operations_home--main-card > h2 {
   font-size: 1.4rem;
@@ -58,18 +62,24 @@ a {
   box-shadow: 0 0 21px 8px var(--glow-shadow-lighter),
     0 0 7px var(--glow-shadow-darker);
 }
-.main-card--details_tag p {
-  position: relative;
-  z-index: -1;
-}
 .main-card--details_tag {
   position: absolute;
   z-index: -1;
   top: 50%;
-  transform: translate(0, -50%) translateZ(-10px);
+  transform: translate(0, -50%) rotateY(-60deg);
   color: #fff;
-  background-color: var(--light-characteristic-color);
-  padding: 0.5rem 2rem 0.5rem 1rem;
+  background-color: var(--characteristic-color);
+  padding: 0.5rem;
+  opacity: 0;
+  width: 18ch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.3rem;
+  height: 8ch;
+}
+.main-card--details_tag p {
+  line-height: 1;
 }
 .employee-card--details_tag {
   --characteristic-color: #ff9135;
@@ -80,11 +90,17 @@ a {
 .employee-card--details_tag,
 .timesheet-card--details_tag {
   border-radius: 0.5rem 0 0 0.5rem;
-  left: -85%;
+  /* left: -85%; */
+  left: -16ch;
+  padding-right: 2rem;
+  transform-origin: right;
 }
 .client-card--details_tag {
   --characteristic-color: #2a748a;
   border-radius: 0 0.5rem 0.5rem 0;
+  right: -16ch;
+  padding-left: 2rem;
+  transform-origin: left;
 }
 
 .kash_operations_home--interactive-card-watermark {
@@ -137,15 +153,17 @@ a {
 }
 .kash_operations_home--employees-card:hover {
 }
-.kash_operations_home--employees-card:hover ~ .employees-card-watermark {
+.kash_operations_home--employees-card--wrapper:hover
+  ~ .employees-card-watermark {
   opacity: 1;
   transform: translate(10%, -50%);
 }
-.kash_operations_home--clients-card:hover ~ .clients-card-watermark {
+.kash_operations_home--clients-card--wrapper:hover ~ .clients-card-watermark {
   opacity: 1;
   transform: translate(-120%, -50%);
 }
-.kash_operations_home--timesheets-card:hover ~ .timesheets-card-watermark {
+.kash_operations_home--timesheets-card--wrapper:hover
+  ~ .timesheets-card-watermark {
   opacity: 1;
   transform: translate(20%, -50%);
 }
@@ -318,6 +336,17 @@ a {
   .kash_operations--hub-title {
     font-size: clamp(40px, 15px + 10vw, 70px);
   }
+
+  .main-card--details_tag {
+    transition: opacity 0.3s 0.3s linear, transform 0.3s 0.3s ease-out;
+  }
+  .kash_operations_home--main-card:hover ~ .main-card--details_tag {
+    opacity: 1;
+    transform: translate(0, -50%) rotateY(0deg);
+  }
+  .main-card--details_tag p {
+  }
+
   .hub_page--main-actions-holder {
     display: flex;
     flex-direction: row;

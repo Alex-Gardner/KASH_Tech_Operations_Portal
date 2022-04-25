@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p class="date">
+        Sample Input
+    </p>
+    <input value="setMostRecentMonday()" type="date"  id="timesheet-update--timesheet-start-date-input" >
+
+
+    <script>
+
+    var nearestMonday = new Date();
+    let dateSelectorValue = document.querySelector('#timesheet-update--timesheet-start-date-input').value;
+
+    // for month: if value (after adding 1) < 9, prepend 0 
+
+    function setMostRecentMonday() {
+        if (nearestMonday.getDay() === 1) {
+             return `${nearestMonday.getFullYear()}-${nearestMonday.getMonth() + 1}-${nearestMonday.getDate()}`
+        } else if (nearestMonday.getDay() === 0) {
+            nearestMonday.setDate(nearestMonday.getDate() - (nearestMonday.getDay() + 6))
+        } else {
+            nearestMonday.setDate(nearestMonday.getDate() - (nearestMonday.getDay() - 1))
+        }
+    }
+    </script>
+</body>
+</html>
