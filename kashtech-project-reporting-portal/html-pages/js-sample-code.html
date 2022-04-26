@@ -11,25 +11,38 @@
     <p class="date">
         Sample Input
     </p>
-    <input value="setMostRecentMonday()" type="date"  id="timesheet-update--timesheet-start-date-input" >
+    <input value="" type="date"  id="timesheet-update--timesheet-start-date-input" >
 
 
     <script>
 
-    var nearestMonday = new Date();
-    let dateSelectorValue = document.querySelector('#timesheet-update--timesheet-start-date-input').value;
+    var dayToday = new Date(2022, 3, 19);
+    let dateSelector = document.querySelector('#timesheet-update--timesheet-start-date-input');
+    function appendLeadingZero(val) {
+        if (val < 10) {
+            return `0${val}`
+        } else {
+            return val
+        }
+    }
+    dateSelector.min = '2022-01-03';
+    dateSelector.step = 7;
 
     // for month: if value (after adding 1) < 9, prepend 0 
 
     function setMostRecentMonday() {
-        if (nearestMonday.getDay() === 1) {
-             return `${nearestMonday.getFullYear()}-${nearestMonday.getMonth() + 1}-${nearestMonday.getDate()}`
-        } else if (nearestMonday.getDay() === 0) {
-            nearestMonday.setDate(nearestMonday.getDate() - (nearestMonday.getDay() + 6))
-        } else {
-            nearestMonday.setDate(nearestMonday.getDate() - (nearestMonday.getDay() - 1))
+        if (dayToday.getDay() === 1) {
+             return `${dayToday.getFullYear()}-${appendLeadingZero(dayToday.getMonth() + 1)}-${appendLeadingZero(dayToday.getDate())}`
+            } else if (dayToday.getDay() === 0) {
+                dayToday.setDate(dayToday.getDate() - (dayToday.getDay() + 6))
+                return `${dayToday.getFullYear()}-${appendLeadingZero(dayToday.getMonth() + 1)}-${appendLeadingZero(dayToday.getDate())}`
+            } else {
+                dayToday.setDate(dayToday.getDate() - (dayToday.getDay() - 1))
+                return `${dayToday.getFullYear()}-${appendLeadingZero(dayToday.getMonth() + 1)}-${appendLeadingZero(dayToday.getDate())}`            
         }
     }
+    dateSelector.value = setMostRecentMonday();
+    
     </script>
 </body>
 </html>
