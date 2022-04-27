@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit A Company Contact</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">     
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- <script src="..." async></script> -->
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="http://52.167.226.44:8080/ibi_apps/WFServlet.ibfs?IBFS1_action=RUNFEX&IBFS_path=/WFC/Repository/KashDemo_Files/KASH_Operations/html-pages/external_html_and_assets/html/styles.css" />
+    <!-- <link rel="stylesheet" href="./styles-2.css" />     -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">  
+    <meta name="description" content="Edit a company associate entry" />
+    <meta name="author" content="KASHTech, LLC" />
+
+    <!-- <link rel="icon" href="**link-to-icon-file**" type="image/x-icon" />  -->
+</head>
+<body>
+    
+    <dialog class="database-submit-dialog" id="database-submit-dialog">
+        <form method="dialog">
+            <p id="update_contacts--success_message">
+                
+            </p>
+            <div>
+              <button class="dialog-modal-confirm-button" id="dialog-modal-confirm-button" value="confirm">OK</button>
+            </div>
+        </form>
+    </dialog>
+    
+    <main class="edit-comp-contact-page__main-section max-width--main-container">
+        <h1 class="edit-comp-contact-title form-page-title--lg-1">
+            Edit Company Contacts
+        </h1>
+        <div class="edit_page__return-link-holder">
+            <a href="http://52.167.226.44:8080/ibi_apps/WFServlet.ibfs?IBFS1_action=RUNFEX&IBFS_path=/WFC/Repository/KashDemo_Files/KASH_Operations/html-pages/external_html_and_assets/html/clients-hub.html" class="return-link">
+                <svg width="80" height="134" viewBox="0 0 80 134" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M76.7864 3.36106C72.8812 -0.544183 66.5495 -0.544181 62.6443 3.36106L1.12622 64.8787C-0.0453612 66.0503 -0.0453675 67.9497 1.12621 69.1213L62.6445 130.64C66.5497 134.545 72.8814 134.545 76.7866 130.64C80.6919 126.734 80.6919 120.403 76.7866 116.497L29.4107 69.1216C28.2391 67.95 28.2391 66.0505 29.4107 64.8789L76.7864 17.5032C80.6917 13.598 80.6917 7.2663 76.7864 3.36106Z" fill="#255463"/>
+                </svg>  
+                <p class="return-link-text">
+                    Return to Clients
+                </p>
+            </a>
+        </div>
+
+        <div class="edit-comp-contact-page--content-holder">
+
+            <form class="attach_contact_to_project--form">
+                <h2 class="attach_contact_to_project--title">
+                    Attach Contact to a Project
+                </h2>
+                <div class="attach_contact_to_project--content-holder">
+
+                    <div class="project-description-selection--holder">
+                        <label for="" class="attach_contact_to_project--project_description--label">
+                            <select name="" id="" class="attach_contact_to_project--project_description--selection">
+                                <option value="">
+                                    - Select a Project -
+                                </option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <div class="company-information-holder">
+                        <label for="" class="attach_contact_to_project--company_name--label">
+                            <select name="" id="" class="attach_contact_to_project--company_name--selection">
+                                <option value="">
+                                    - Select a Company -
+                                </option>
+                            </select>
+                        </label>
+
+                        <label for="" class="attach_contact_to_project--contact_name--label">
+                            <select name="" id="" class="attach_contact_to_project--contact_name--selection">
+                                <option id="attach_contact_to_project--contact-name-empty-display-option" value="">
+                                    - Please Select a Company First -
+                                </option>
+                            </select>
+                        </label>
+                    </div>
+
+                </div>
+            </form>
+
+            <form class="remove_contact_from_project--form">
+                <h2 class="remove_contact_from_project--title">
+                    Remove Contact from Project
+                </h2>
+                <div class="remove_contact_from_project--content-holder">
+             
+                        <label for="" class="remove_contact_from_project--project_description--label">
+                            <select name="" id="" class="remove_contact_from_project--project_description--selection">
+                                <option value="">
+                                    - Select a Project -
+                                </option>
+                            </select>
+                        </label>
+
+                        <label for="" class="remove_contact_from_project--contact_name--label">
+                            <select name="" id="" class="remove_contact_from_project--contact_name--selection">
+                                <option id="remove_contact_from_project--contact-name-empty-display-option" value="">
+                                    - Please Select a Project First -
+                                </option>
+                            </select>
+                        </label>
+                    
+                </div>
+            </form>
+
+        </div>
+        
+        <iframe src="" id="company-contact-list-summary_iframe" class="company-list-summary_iframe">
+                        
+        </iframe>
+
+        
+    </main>
+       <script>
+           (function() {
+                var path = window.location.href.substr(0, window.location.href.indexOf('ibi_apps')) ;
+                var companyDropdownFexUrl = path + 'ibi_apps/WFServlet?IBIC_server=EDASERVE&IBIMR_drill=IBFS,RUNFEX,IBIF_ex,true&IBIF_ex=IBFS:/WFC/Repository/KashDemo_Files/KASH_Operations/html-pages/external_html_and_assets/html/dropdown-fex-files/company-dropdown.fex';
+                // var myUrl = path + 'ibi_apps/WFServlet?IBIC_server=EDASERVE&IBIMR_drill=IBFS,RUNFEX,IBIF_ex,true&IBIF_ex=IBFS:/WFC/Repository/KashDemo_Files/Ben/Dropdown_handcoded_html/get_cars.fex';
+                
+                fetch(companyDropdownFexUrl).then(res => res.text()).then(
+                    function(data) {
+                        const parser = new DOMParser();
+                        const xml = parser.parseFromString(data, "application/xml");
+                            
+                        var companyValues = xml.querySelectorAll('tr[linetype="data"]')
+//                         var companyIdValues = xml.querySelectorAll('td[colnum="c1"]')
+                        for (value of companyValues) {
+                            var optionElement = document.createElement('option')
+                            optionElement.innerHTML = value.children[0].innerHTML;
+                            optionElement.value = value.children[0].innerHTML;
+                            optionElement.dataset.companyId = value.children[1].innerHTML;
+                            
+//                             optionValue.dataset.companyId = value.innerHTML;
+                            
+                            document.querySelector('#comp-contact-form--company-name-input').appendChild(optionElement)
+                        }
+                    }
+                )
+            })();
+            
+//             const companySelector = document.querySelector('#comp-contact-form--company-name-input')
+//             let companyIdValue = 42;
+            
+//             companySelector.addEventListener('change', function logchange(event) {
+//             companyIdValue = companySelector.options[companySelector.selectedIndex].dataset.companyId
+//                 console.log(companyIdValue)
+//             })
+            
+                
+            function sendCompanyContactFormValuesToFex() {
+                  event.preventDefault();
+                  var path = window.location.href.substr(0, window.location.href.indexOf('ibi_apps')) ;
+                var myUrl = path + "ibi_apps/WFServlet?IBIC_server=EDASERVE&IBIMR_drill=IBFS,RUNFEX,IBIF_ex,true&IBIF_ex=IBFS:/WFC/Repository/KashDemo_Files/KASH_Operations/html-pages/external_html_and_assets/html/dropdown-fex-files/add_company_contact_to_database.fex";
+                  
+                const formInputs = document.querySelectorAll('.add-company-contact--form-input');
+                const companySelector = document.querySelector('#comp-contact-form--company-name-input')
+                const companyIdValue = companySelector.options[companySelector.selectedIndex].dataset.companyId
+            
+            
+//                 companySelector.addEventListener('change', function logchange(event) {
+//                     console.log(companyIdValue)
+//                 })
+            
+            
+                // add a dataParam attribute that links FEX parameter to form value?
+                // Use a data attribute on dropdown inputs to gather Primary Keys? Then push key into parameters array?
+            
+            
+                let fexParameters = [
+                    '&COMPANY_CONTACT_NAME',
+                    '&COMPANY_CONTACT_PHONE_NUMBER',
+                    '&COMPANY_CONTACT_EMAIL',
+                    '&COMPANY_CONTACT_CITY',
+                    '&COMPANY_CONTACT_STATE',
+                    '&COMPANY_CONTACT_COUNTRY'
+                ]
+                
+                let hiddenParameters = [
+                    '&COMPANY_ID'
+                ]
+                let hiddenVariables = [
+                    companyIdValue    
+                ]
+            
+                
+                
+                let inputArray = Array.from(formInputs);
+            
+                const parametizedVariables = inputArray.map((item,arrIndex) => {
+                    return (`${fexParameters[arrIndex]}=${item.value}`)
+                })
+                
+                const synchronizedVariables = hiddenVariables.map((item,arrIndex) => {
+                    return (`${hiddenParameters[arrIndex]}=${item}`)
+                })
+                
+                let combinedVariableList = [...parametizedVariables, synchronizedVariables]
+            
+                
+                let concatUrl = "";
+                
+                combinedVariableList.forEach(
+                    function(item) {
+                        return(
+                            concatUrl = concatUrl + item
+                            )
+                    }
+                ) 
+//                 console.log(concatUrl);
+                    
+                myUrl = myUrl + concatUrl;
+//                 console.log(myUrl);
+                document.getElementById('company-contact-list-summary_iframe').src = myUrl;
+        
+            }
+            
+            /* ------------------------------------------- */
+            
+                
+            let submitContactToDBDialog = document.querySelector('#database-submit-dialog')
+            let submitContactBtn = document.querySelector('#comp_contact-form--add-contact-button')
+            
+            
+            submitContactBtn.addEventListener('click', function onOpen() {
+                let contactName = document.querySelector('#contact-name-input').value;
+                let companyName = document.querySelector('#comp-contact-form--company-name-input').value;
+                
+                let dialogContactNameSpan = document.querySelector('#contact-name--dialog-span');
+                let dialogCompanyNameSpan = document.querySelector('#company-name--dialog-span');
+                
+                dialogContactNameSpan.innerHTML = contactName;
+                dialogCompanyNameSpan.innerHTML = companyName;
+                
+                if (typeof submitContactToDBDialog.showModal === "function") {
+                    submitContactToDBDialog.showModal();
+                  } else {
+                    outputBox.value = "Sorry, the <dialog> API is not supported by this browser.";
+                    }
+            });
+            
+            submitContactToDBDialog.addEventListener('close', (event) => {
+                document.querySelector('#add-comp-contact-form').reset()
+            })
+            /* ------------------------------------------- */
+            
+       </script> 
+</body>
+</html>

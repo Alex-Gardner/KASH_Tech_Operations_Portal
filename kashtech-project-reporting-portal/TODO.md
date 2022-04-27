@@ -336,3 +336,5 @@ Create a view to join company contacts with companies
 
 Success dialog when upload to database button is clicked
 "Sumitted timesheet for <Name>"
+
+[Tibco EBX Associate Certification](https://www.tibco.com/services/education/certification/tibco-ebx-associate-certification-exam)
