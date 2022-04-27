@@ -849,3 +849,105 @@ input[type="text"] {
     margin-top: 1rem;
   }
 }
+/* ################################################################### */
+
+/* ################################################################### */
+
+/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+
+/* ^^^^^^^^^^^^^^ ********** Edit Company Contacts Page ********** ^^^^^^^^^^^^^^^^^^ */
+.edit-comp-contact-page--content-holder {
+  margin: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+.edit-comp-contact-page__main-section label {
+  font-weight: 300;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.edit-comp-contact-page__main-section input,
+.edit-comp-contact-page__main-section select {
+  max-width: 10rem;
+  font-size: 0.8rem;
+  background-color: #fff;
+  border: 2px solid;
+  border-color: var(--input-border_color, #7c7c7c);
+  border-radius: 3px;
+}
+.edit_contact_page--mini-form {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+  background-color: var(--mini_form--background-color, #fdefdb);
+  border-radius: 0.7rem;
+}
+.edit_contact_page--mini-form h2 {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  /* margin-bottom: 1.5rem; */
+  font-weight: 900;
+  color: var(--mini_form--title-color, #4e7c8f);
+}
+.attach_contact_to_project--form {
+  --mini_form--button-color: #83dc9c;
+  --mini_form-button--hover-color: #419c5a;
+  --mini_form--background-color: #f2f6f7;
+  --mini_form--title-color: #44867a;
+}
+.remove_contact_from_project--form {
+  --mini_form--button-color: #ed7971;
+  --mini_form-button--hover-color: #ed5147;
+  --mini_form--background-color: #fff0f0;
+  --mini_form--title-color: #ce5d55;
+}
+.edit_contact_page--mini-form button {
+  margin-top: auto;
+  padding: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 0.7rem;
+  background-color: var(--mini_form--button-color);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.edit_contact_page--mini-form button:hover {
+  background-color: var(--mini_form-button--hover-color);
+}
+.attach_contact_to_project--content-holder {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: auto 0;
+}
+.attach_contact_to_project--content-holder .company-information-holder {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.remove_contact_from_project--content-holder {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: auto 0;
+}
+.attach_contact_to_project--project_description--selection,
+.remove_contact_from_project--project_description--selection {
+  --input-border_color: #9481c8;
+}
+.attach_contact_to_project--company_name--selection,
+.attach_contact_to_project--contact_name--selection,
+.remove_contact_from_project--contact_name--selection {
+  --input-border_color: #0f806b;
+}
+
+@media (min-width: 900px) {
+  .edit-comp-contact-page--content-holder {
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  }
+}
